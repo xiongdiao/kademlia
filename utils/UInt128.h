@@ -40,7 +40,7 @@ there client on the eMule forum..
 #ifndef __UINT128_H__
 #define __UINT128_H__
 
-#include "../../Types.h"
+#include "../Types.h"
 
 ////////////////////////////////////////
 namespace Kademlia {

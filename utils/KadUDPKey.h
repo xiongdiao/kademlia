@@ -27,7 +27,7 @@
 #ifndef KADEMLIA_UTILS_KADUDPKEY_H
 #define KADEMLIA_UTILS_KADUDPKEY_H
 
-#include "../../SafeFile.h"
+#include "../SafeFile.h"
 
 namespace Kademlia
 {
