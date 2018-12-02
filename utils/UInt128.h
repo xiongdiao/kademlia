@@ -95,7 +95,8 @@ public:
 	/* Bit at level 0 being most significant. */
 	CUInt128& SetBitNumber(unsigned bit, unsigned value)
 	{
-		wxCHECK(bit <= 127, *this);
+		if(bit <= 127)
+			return *this;
 
 		if (value)
 			m_data.u32_data[(127 - bit) / 32] |= 1 << ((127 - bit) % 32);
@@ -114,15 +115,16 @@ public:
 	/* Chunk 0 being the most significant */
 	void Set32BitChunk(unsigned chunk, uint32_t value)
 	{
-		wxCHECK2(chunk < 4, return);
+		if(chunk < 4)
+			return;
 
 		m_data.u32_data[3 - chunk] = value;
 	}
 
 	CUInt128& SetValueBE(const uint8_t *valueBE) throw();
 
-	wxString ToHexString() const;
-	wxString ToBinaryString(bool trim = false) const;
+	std::string ToHexString() const;
+	std::string ToBinaryString(bool trim = false) const;
 	void ToByteArray(uint8_t *b) const;
 
 	/**
